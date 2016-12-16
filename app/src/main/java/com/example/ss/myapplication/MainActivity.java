@@ -1,6 +1,7 @@
 package com.example.ss.myapplication;
 
 import android.graphics.Color;
+import android.icu.util.Calendar;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.CalendarView;
 import android.widget.Chronometer;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.TimePicker;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,6 +32,14 @@ public class MainActivity extends AppCompatActivity {
         final RadioButton r1;
         final RadioButton r2;
 
+        final TextView T2;
+        final TextView T3;
+        final TextView T4;
+        final TextView T5;
+        final TextView T6;
+        final Button b2;
+
+
         c1 = (Chronometer) findViewById(R.id.chronometer3);
         b1 = (Button) findViewById(R.id.button);
         C1 = (CalendarView) findViewById(R.id.calendarView);
@@ -37,6 +47,13 @@ public class MainActivity extends AppCompatActivity {
         Ra1 = (RadioGroup) findViewById(R.id.radiogroup);
         r1 = (RadioButton) findViewById(R.id.radioButton);
         r2 = (RadioButton) findViewById(R.id.radioButton2);
+        T2 = (TextView) findViewById(R.id.textView2);
+        T3 = (TextView) findViewById(R.id.textView3);
+        T4 = (TextView) findViewById(R.id.textView4);
+        T5 = (TextView) findViewById(R.id.textView5);
+        T6 = (TextView) findViewById(R.id.textView6);
+        b2 = (Button) findViewById(R.id.button2);
+
 
 
 
@@ -66,7 +83,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        b2.setOnClickListener(new Button.OnClickListener(){
+            public void onClick(View v){
+                c1.stop();
+                c1.setTextColor(Color.BLUE);
+                java.util.Calendar curDate = java.util.Calendar.getInstance();
+                curDate.setTimeInMillis(C1.getDate());
+                T2.setText(Integer.toString(curDate.get(java.util.Calendar.YEAR))+"년");
+                T3.setText(Integer.toString(curDate.get(java.util.Calendar.MONTH))+"월");
+                T4.setText(Integer.toString(curDate.get(java.util.Calendar.DATE))+"일");
 
+                T5.setText(Integer.toString(t1.getCurrentHour())+"시");
+                T6.setText(Integer.toString(t1.getCurrentMinute())+"분");
+
+            }
+        });
 
 
 
