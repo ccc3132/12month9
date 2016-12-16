@@ -57,7 +57,11 @@ public class MainActivity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if(r1.isChecked()){
                     C1.setVisibility(View.VISIBLE);
-                    t1.setVisibility(View.GONE);
+                    t1.setVisibility(View.INVISIBLE);
+                }
+                else if(r2.isChecked()){
+                    t1.setVisibility(View.VISIBLE);
+                    C1.setVisibility(View.INVISIBLE);
                 }
             }
         });
